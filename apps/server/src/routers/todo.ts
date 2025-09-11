@@ -1,10 +1,9 @@
 import { eq } from "drizzle-orm";
 import z from "zod";
-import { getDb } from "../db";
-// If you need env, import from the centralized file:
-// import { env } from "../cloudflare-env";
-import { todo } from "../db/schema/todo";
-import { publicProcedure } from "../lib/orpc";
+import { getDb } from "@/db";
+import { todo } from "@/db/schema/todo";
+import { publicProcedure } from "@/lib/orpc";
+
 export const todoRouter = {
 	getAll: publicProcedure.handler(async () => {
 		const start = Date.now();

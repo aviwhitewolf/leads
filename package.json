@@ -17,9 +17,8 @@
 		"db:generate": "turbo -F server db:generate",
 		"db:migrate": "turbo -F server db:migrate"
 	},
-	"dependencies": {},
 	"devDependencies": {
 		"turbo": "^2.5.4"
 	},
-	"packageManager": "pnpm@10.15.0"
+	"packageManager": "pnpm@10.15.1"
 }

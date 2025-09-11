@@ -1,4 +1,4 @@
-import { protectedProcedure, publicProcedure } from "../lib/orpc";
+import { protectedProcedure, publicProcedure } from "@/lib/orpc";
 import type { RouterClient } from "@orpc/server";
 import { todoRouter } from "./todo";
 

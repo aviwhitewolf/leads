@@ -2,7 +2,8 @@ import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { getDb } from "../db";
 import * as schema from "../db/schema/auth";
-import { env } from "cloudflare:workers";
+import { env } from "../cloudflare-env";
+
 
 export function createAuth() {
   return betterAuth({
