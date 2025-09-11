@@ -4,11 +4,24 @@
 	"compatibility_date": "2025-06-15",
 	"compatibility_flags": ["nodejs_compat"],
 	"vars": {
-		"NODE_ENV": "production"
+		"NODE_ENV": "production",
+		"CORS_ORIGIN": "http://localhost:3001",
+		"BETTER_AUTH_SECRET": "cobFMnqShfD0n07utYiNW26TKOqAi9JW",
+		"BETTER_AUTH_URL": "https://leads-server.avinash-7355.workers.dev"
 		// Add public environment variables here
 		// Example: "CORS_ORIGIN": "https://your-domain.com"
-	}
+	},
 	// For sensitive data, use:
 	// wrangler secret put SECRET_NAME
 	// Don't add secrets to "vars" - they're visible in the dashboard!
+	  // Add this to your wrangler.jsonc
+  "hyperdrive": [
+    {
+      "binding": "HYPERDRIVE",
+      "id": "704e2036642e49598e8dc3fc6de4b882",
+      
+      // Optional. Can be used to connect to a local database for local development with `wrangler dev`
+	  "localConnectionString": "postgresql://postgres.bqcjhbgjdmvazqznjuyn:BkvATodHW1n1c1fz@aws-1-ap-south-1.pooler.supabase.com:5432/postgres"
+	}
+  ]
 }

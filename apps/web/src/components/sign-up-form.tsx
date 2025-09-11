@@ -2,7 +2,6 @@ import { authClient } from "@/lib/auth-client";
 import { useForm } from "@tanstack/react-form";
 import { toast } from "sonner";
 import z from "zod";
-import Loader from "./loader";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
@@ -50,7 +49,7 @@ export default function SignUpForm({
 	});
 
 	if (isPending) {
-		return <Loader />;
+		return <div className="text-center animate-ping">Loading...</div>;
 	}
 
 	return (
