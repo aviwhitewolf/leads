@@ -1,7 +1,8 @@
 
 import type { Context as HonoContext } from "hono";
-import { auth } from "./auth";
-import { db } from "../db";
+import { auth, createAuth } from "./auth";
+import { createDb } from "../db";
+import { runtimeEnv } from "./env";
 
 export type CreateContextOptions = {
 	context: HonoContext;
@@ -9,13 +10,10 @@ export type CreateContextOptions = {
 
 
 export async function createContext({ context }: CreateContextOptions) {
-	const session = await auth().api.getSession({
-		headers: context.req.raw.headers,
-	});
-	return {
-		session,
-		db: db(),
-	};
+	const db = createDb(runtimeEnv.HYPERDRIVE);
+	const authInstance = createAuth({ db });
+	const session = await authInstance.api.getSession({ headers: context.req.raw.headers });
+	return { session, db };
 }
 
 export type Context = Awaited<ReturnType<typeof createContext>>;

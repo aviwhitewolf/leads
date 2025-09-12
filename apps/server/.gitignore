@@ -26,6 +26,10 @@ node_modules/
 /.pnp
 .pnp.*
 
+/dist/
+/.turbo/
+/.wrangler/
+
 # env
 .env*
 .env.production

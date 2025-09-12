@@ -5,9 +5,9 @@
 	"compatibility_flags": ["nodejs_compat"],
 	"vars": {
 		"NODE_ENV": "production",
-		"CORS_ORIGIN": "http://localhost:3001",
+		"CORS_ORIGIN": "https://leads.uncia.in",
 		"BETTER_AUTH_SECRET": "cobFMnqShfD0n07utYiNW26TKOqAi9JW",
-		"BETTER_AUTH_URL": "https://leads-server.avinash-7355.workers.dev"
+		"BETTER_AUTH_URL": "https://api.leads.uncia.in"
 		// Add public environment variables here
 		// Example: "CORS_ORIGIN": "https://your-domain.com"
 	},

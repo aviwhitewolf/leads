@@ -1,15 +1,23 @@
 import { drizzle } from "drizzle-orm/postgres-js";
-import { env } from "cloudflare:workers";
 import postgres from "postgres";
+import type { Env } from "../lib/env";
 
-export const db = () => drizzle(postgres(env.HYPERDRIVE.connectionString, {
-    max: 5,
+/**
+ * Create a Drizzle DB instance from a Hyperdrive binding.
+ * Keep a single connection per request to avoid leaks in Workers.
+ */
+export function createDb(hd: Hyperdrive) {
+  const client = postgres(hd.connectionString, {
+    max: 1,
     connect_timeout: 10,
-    prepare: false, // Recommended for Cloudflare Workers
-    idle_timeout: 20, // Close idle connections quickly
-    max_lifetime: 60 * 30, // 30 minutes max connection lifetime
-    transform: {
-      undefined: null, // Convert undefined to null for PostgreSQL
-    },
-    onnotice: () => {}, // Suppress notices in Workers
-  }));
+    prepare: false,
+    idle_timeout: 20,
+    max_lifetime: 60 * 30,
+    transform: { undefined: null },
+    onnotice: () => {},
+  });
+  return drizzle(client);
+}
+
+// Backwards-compatible helper if existing code imports { db }
+export const db = (env: Env) => createDb(env.HYPERDRIVE);

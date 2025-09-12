@@ -1,0 +1,15 @@
+{
+  "main": ".open-next/worker.js",
+  "name": "leads-web",
+  "compatibility_date": "2025-03-25",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "vars": {
+		"NEXT_PUBLIC_SERVER_URL": "https://leads-server.avinash-7355.workers.dev"
+	},
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  }
+}
