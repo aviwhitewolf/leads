@@ -12,7 +12,8 @@ import {
   ConversationContent,
   ConversationEmptyState,
   ConversationScrollButton,
-} from '@/components/ai-elements/conversation';
+} from "@/components/ai-elements/conversation";
+import { ChatLayout } from "@/components/chat/chat-layout";
 
 export default function Chats() {
   const router = useRouter();
@@ -34,14 +35,9 @@ export default function Chats() {
   }
 
   return (
-   <ContentLayout title="Chats">
-    
+    <ContentLayout title="Chats">
       
-        <div className="flex gap-6 mt-6">
-        
-
-
-        </div>
+        <ChatLayout />
       
     </ContentLayout>
   );
