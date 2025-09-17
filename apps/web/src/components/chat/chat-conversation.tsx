@@ -36,7 +36,7 @@ export function ChatConversation({ chat, onBack, showBackButton = true, classNam
   }
 
   return (
-    <div className={`w-full bg-white min-h-full flex flex-col ${className}`}>
+    <div className={`w-full  min-h-full flex flex-col ${className}`}>
       {/* Header */}
       <div className="flex items-center gap-3 p-4 border-b border-gray-100">
         {showBackButton && (
@@ -46,9 +46,9 @@ export function ChatConversation({ chat, onBack, showBackButton = true, classNam
         )}
 
         <div className="relative">
-          <Avatar className="h-10 w-10">
+          <Avatar className="h-10 w-10 ">
             <AvatarImage src={chat.avatar || "/placeholder.svg"} alt={chat.name} />
-            <AvatarFallback className={`${chat.avatarColor} text-white font-medium`}>{chat.initials}</AvatarFallback>
+            <AvatarFallback className={`${chat.avatarColor} text-white font-medium `}>{chat.initials}</AvatarFallback>
           </Avatar>
           {chat.isOnline && (
             <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>

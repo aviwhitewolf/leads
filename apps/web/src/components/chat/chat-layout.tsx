@@ -46,7 +46,7 @@ const mockChats: Chat[] = [
     lastMessage: "How about 7 PM at the new Italia...",
     timestamp: "Yesterday",
     unreadCount: 0,
-    initials: "FH",
+    initials: "🐻",
     avatarColor: "bg-green-500",
   },
   {
@@ -145,7 +145,7 @@ export function ChatLayout() {
 
       {/* Chat Conversation - Only visible when chat is selected */}
       {selectedChat && selectedChatData && (
-        <div className={`${selectedChat ? "flex" : "hidden"} flex-1 md:border-l border-gray-200`}>
+        <div className={`${selectedChat ? "flex" : "hidden"} w-full flex-1 md:border-l border-gray-200 bg-background `}>
           <ChatConversation
             chat={selectedChatData}
             onBack={() => setSelectedChat(null)}
@@ -157,7 +157,7 @@ export function ChatLayout() {
 
       {/* Empty state for desktop when no chat is selected */}
       {!selectedChat && (
-        <div className="hidden md:flex flex-1 items-center justify-center bg-gray-50 border-l border-gray-200">
+        <div className="hidden md:flex flex-1 w-full items-center justify-center bg-background border-l border-background">
           <div className="text-center text-gray-500">
             <div className="text-6xl mb-4">💬</div>
             <h3 className="text-xl font-medium mb-2">Select a chat to start messaging</h3>
